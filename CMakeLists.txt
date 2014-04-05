@@ -25,7 +25,7 @@ set(config_project_prefix "${CMAKE_BINARY_DIR}")
 ExternalProject_Add(
     config_project
     PREFIX ${config_project_prefix}
-    URL ${CMAKE_CURRENT_SOURCE_DIR}/tarballs/libconfig-1.4.9.tar.gz
+    URL http://www.hyperrealm.com/libconfig/libconfig-1.4.9.tar.gz
     SOURCE_DIR ${config_project_prefix}/src/config_project
     CONFIGURE_COMMAND ${config_project_prefix}/src/config_project/configure --prefix=${config_project_prefix}/src/config_project-build
     BUILD_COMMAND make
