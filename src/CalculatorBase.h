@@ -10,7 +10,6 @@
 
 #include "NonlinearFit.h"
 #include <StringTools.h>
-#include <Log.h>
 
 #include <vector>
 

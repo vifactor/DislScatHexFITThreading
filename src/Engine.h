@@ -15,8 +15,6 @@
 #include "ProgramSettings.h"
 #include "DataReader.h"
 
-#include <Log.h>
-
 #include <fstream>
 
 class Engine

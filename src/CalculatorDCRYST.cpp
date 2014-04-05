@@ -55,15 +55,15 @@ CalculatorDCRYST::CalculatorDCRYST(double Qx, double Qz, double be, double bs,
 	 */
 	cosAlpha = sinThetaB * cosPsi / cosPhi;
 
-	LOG(logINFO) << "cos(Alpha):\t" << cosAlpha << std::endl;
-	LOG(logINFO) << "sin(Psi):\t" << sinPsi << std::endl;
-	LOG(logINFO) << "cos(Phi):\t" << cosPhi << std::endl;
+	std::cout << "cos(Alpha):\t" << cosAlpha << std::endl;
+	std::cout << "sin(Psi):\t" << sinPsi << std::endl;
+	std::cout << "cos(Phi):\t" << cosPhi << std::endl;
 
 	/*precise value of chi_edge in case of double crystal diffractometry*/
 	gamma_edge = (9 - 16 * nu + 8 * nu * nu - 2 * (3 - 4 * nu) * gsl_pow_2(cosAlpha)) * gsl_pow_2(cosPsi)
 				/ (16 * gsl_pow_2(nu - 1));
 
-	LOG(logDEBUG) << "gamma_edge (correct):\t" << gamma_edge << std::endl;
+	std::cout << "gamma_edge (correct):\t" << gamma_edge << std::endl;
 
 	gamma_screw = gsl_pow_2(sinPsi)/ 2;
 
@@ -71,14 +71,14 @@ CalculatorDCRYST::CalculatorDCRYST(double Qx, double Qz, double be, double bs,
 	C_screw = gamma_screw * gsl_pow_2(m_Qnorm * bs) / (4 * M_PI);
 	C_mixed = (C_edge + C_screw);
 
-	LOG(logDEBUG) << "gamma_edge:\t" <<gamma_edge << std::endl;
-	LOG(logDEBUG) << "gamma_screw:\t" <<gamma_screw << std::endl;
+	std::cout << "gamma_edge:\t" <<gamma_edge << std::endl;
+	std::cout << "gamma_screw:\t" <<gamma_screw << std::endl;
 
-	LOG(logDEBUG) << "gamma_screw/gamma_edge:\t" <<gamma_edge / gamma_screw << std::endl;
+	std::cout << "gamma_screw/gamma_edge:\t" <<gamma_edge / gamma_screw << std::endl;
 
-	LOG(logDEBUG) << "C_edge:\t" <<C_edge << std::endl;
-	LOG(logDEBUG) << "C_screw:\t" <<C_screw << std::endl;
-	LOG(logDEBUG) << "C_mixed:\t" <<C_mixed << std::endl;
+	std::cout << "C_edge:\t" <<C_edge << std::endl;
+	std::cout << "C_screw:\t" <<C_screw << std::endl;
+	std::cout << "C_mixed:\t" <<C_mixed << std::endl;
 
 	/*------integration stuff--------*/
 	limit = 20000;

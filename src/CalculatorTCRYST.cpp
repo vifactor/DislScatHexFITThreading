@@ -25,7 +25,6 @@ double tcryst_integrand_asym(double var, void *params)
 
 	result = me->getG(var) * var * gsl_sf_bessel_J0(me->q * var);
 
-	//LOG(logDEBUG1) << "G(" << var << ")=" << result;
 	return result;
 }
 

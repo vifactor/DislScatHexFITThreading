@@ -6,7 +6,6 @@
  */
 
 #include "Engine.h"
-#include <Log.h>
 #include <iterator>
 
 #define PROGRAM "DislScatThreadingVERT"
@@ -15,10 +14,9 @@
 
 void info()
 {
-	LOG(logTIME) << std::endl;
-	LOG(logINFO)<<"Program:\t"<<PROGRAM << std::endl;
-	LOG(logINFO)<<"Version:\t"<<VERSION << std::endl;
-	LOG(logINFO)<<"Author:\t"<<AUTHOR << std::endl;
+	std::cout <<"Program:\t" << PROGRAM << std::endl;
+	std::cout <<"Version:\t" << VERSION << std::endl;
+	std::cout <<"Author:\t" << AUTHOR << std::endl;
 }
 
 int main(int argc, char ** argv)
@@ -27,7 +25,6 @@ int main(int argc, char ** argv)
 	ProgramSettings programSettings;
 	Engine engine;
 
-	OutputTO::Stream()=stdout;
 	info();
 	if(argc == 1)
 	{
@@ -64,7 +61,6 @@ int main(int argc, char ** argv)
 		}
 	}
 
-	OutputTO::Stream()=stdout;
 	std::cout << "Done successfully." << std::endl;
 	return EXIT_SUCCESS;
 }

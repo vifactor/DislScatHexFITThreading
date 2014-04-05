@@ -13,8 +13,6 @@ Engine::Engine()
 	m_calculator = NULL;
 	m_fitter = NULL;
 	m_programSettings = NULL;
-
-	Log::ReportingLevel()=logDEBUG;
 }
 
 Engine::~Engine()
