@@ -9,7 +9,8 @@ include(ExternalProject)
 ExternalProject_Add(
     port_project
     PREFIX ${CMAKE_BINARY_DIR}
-    URL ${CMAKE_CURRENT_SOURCE_DIR}/tarballs/port.tar.gz
+#    URL ${CMAKE_CURRENT_SOURCE_DIR}/tarballs/port.tar.gz
+    GIT_REPOSITORY https://github.com/vifactor/PortLibrary.git
 )
 
 #levmar library
