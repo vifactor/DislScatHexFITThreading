@@ -16,7 +16,7 @@ ExternalProject_Add(
 ExternalProject_Add(
     levmar_project
     PREFIX ${CMAKE_BINARY_DIR}
-    URL ${CMAKE_CURRENT_SOURCE_DIR}/tarballs/levmar-2.6.tgz
+    URL http://users.ics.forth.gr/~lourakis/levmar/levmar-2.6.tgz
     INSTALL_COMMAND ""
 )
 
