@@ -9,7 +9,7 @@
 #include <iterator>
 
 #define PROGRAM "DislScatThreadingVERT"
-#define VERSION "1.54 from 10 october 2013"
+#define VERSION "1.55 from 4 april 2014"
 #define AUTHOR "Viktor S. Kopp"
 
 void info()
