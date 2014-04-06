@@ -2,7 +2,19 @@ cmake_minimum_required(VERSION 2.8)
 
 project(FitSkew)
 
-#EXTERNAL LIBRARIES
+#Check if important libraries are available.
+
+#Gnu Scientific library
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules") # findGSL module is not shipped with cmake
+find_package(GSL REQUIRED)
+
+#LAPACK 
+find_package(LAPACK REQUIRED)
+
+#BLAS
+find_package(BLAS REQUIRED)
+
+#some libraries are build as external projects
 include(ExternalProject)
 
 #port library
@@ -44,10 +56,10 @@ link_directories(${CMAKE_BINARY_DIR}/src/config_project-build/lib)
 link_directories(${CMAKE_BINARY_DIR}/src/levmar_project-build)
 
 file(GLOB CPP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-add_executable(FitSkew ${CPP_SOURCES})
+add_executable(DislScatHexFITThreading ${CPP_SOURCES})
 
-add_dependencies(FitSkew port_project)
-add_dependencies(FitSkew levmar_project)
-add_dependencies(FitSkew config_project)
+add_dependencies(DislScatHexFITThreading port_project)
+add_dependencies(DislScatHexFITThreading levmar_project)
+add_dependencies(DislScatHexFITThreading config_project)
 
-target_link_libraries(FitSkew port levmar config++ lapack blas gsl)
+target_link_libraries(DislScatHexFITThreading port levmar config++ lapack blas gsl)
