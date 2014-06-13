@@ -16,6 +16,7 @@
 #include "DataReader.h"
 
 #include <fstream>
+#include <boost/filesystem.hpp>
 
 class Engine
 {

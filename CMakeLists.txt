@@ -14,6 +14,9 @@ find_package(LAPACK REQUIRED)
 #BLAS
 find_package(BLAS REQUIRED)
 
+#BOOST
+find_package(Boost COMPONENTS filesystem system REQUIRED)
+
 #some libraries are build as external projects
 include(ExternalProject)
 
@@ -62,4 +65,4 @@ add_dependencies(DislScatHexFITThreading port_project)
 add_dependencies(DislScatHexFITThreading levmar_project)
 add_dependencies(DislScatHexFITThreading config_project)
 
-target_link_libraries(DislScatHexFITThreading port levmar config++ lapack blas gsl)
+target_link_libraries(DislScatHexFITThreading port levmar config++ boost_filesystem boost_system lapack blas gsl gfortran)

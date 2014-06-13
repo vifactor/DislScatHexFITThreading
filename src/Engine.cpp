@@ -228,12 +228,13 @@ void Engine::saveResume() const
 void Engine::saveSettings() const
 {
 	libconfig::Config cfg;
-	std::string oldcfgfile, newcfgfile;
+	boost::filesystem::path oldcfgfile, newcfgfile;
 
 	oldcfgfile = m_programSettings->getConfigfile();
+	oldcfgfile.replace_extension(".~cfg");
 	newcfgfile = m_programSettings->getConfigfile();
-	stripExtension(newcfgfile);
-	newcfgfile += "_mod.cfg";
+	/*save old configuration in a file with extension ~cfg*/
+	boost::filesystem::rename(newcfgfile, oldcfgfile);
 
 	try
 	{
@@ -250,7 +251,7 @@ void Engine::saveSettings() const
 		cfg.writeFile (newcfgfile.c_str());
 	} catch (const libconfig::FileIOException &fioex)
 	{
-		throw Engine::Exception("I/O error while reading file:\t" + oldcfgfile);
+		throw Engine::Exception("I/O error while reading file:\t" + oldcfgfile.native());
 	} catch (const libconfig::ParseException &pex)
 	{
 		throw Engine::Exception("Parse error at " +
